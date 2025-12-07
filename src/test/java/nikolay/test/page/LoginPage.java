@@ -1,5 +1,6 @@
 package nikolay.test.page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -20,24 +21,28 @@ public class LoginPage {
         this.wait = wait;
     }
 
+    @Step("Ввод логина")
     public LoginPage enterLogin(String login) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN)).clear();
         driver.findElement(LOGIN).sendKeys(login);
         return this;
     }
 
+    @Step("Ввод пароля")
     public LoginPage enterPassword(String password) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(PASSWORD)).clear();
         driver.findElement(PASSWORD).sendKeys(password);
         return this;
     }
 
+    @Step("Нажатие кнопки войти")
     public LoginPage submit() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(SUBMIT_BUTTON)).click();
         driver.findElement(SUBMIT_BUTTON).click();
         return this;
     }
 
+    @Step("Сообщение, что дашбоорд создан успешно")
     public boolean isErrorMessageDisplayed() {
         try {
             return wait.until(ExpectedConditions.visibilityOfElementLocated(MESSAGE_LOGIN_ERROR)).isDisplayed();

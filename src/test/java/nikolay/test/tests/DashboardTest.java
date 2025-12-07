@@ -3,7 +3,7 @@ package nikolay.test.tests;
 import nikolay.test.base.BaseTest;
 import org.junit.jupiter.api.Test;
 
-public class WidgetTest extends BaseTest {
+public class DashboardTest extends BaseTest {
 
     @Test
     public void addNewWidget() {
@@ -11,7 +11,7 @@ public class WidgetTest extends BaseTest {
             enterPassword("1q2w3e").
             submit().
             isSuccessMessageDisplayed();
-        widgetPage.openWidgetPage()
+        widgetPage.openDashboardPage()
             .openAddDashboard()
             .enterDashboardName("dashboard")
             .enterDashboardDescription("description")
